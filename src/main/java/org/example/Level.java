@@ -29,7 +29,7 @@ public class Level {
 
         }
         for(int i=numBikes+numCars+1;i<=numSpot;i++){
-            parkingSpots.add(new ParkingSpot(i, VehicleType.CAR));
+            parkingSpots.add(new ParkingSpot(i, VehicleType.TRUCK));
         }
     }
 
@@ -52,6 +52,13 @@ public class Level {
             }
         }
         return false;
+    }
+
+    public void displayAvailibility(){
+        System.out.println("Level "+floor+" Availibility : ");
+        for(ParkingSpot spot : parkingSpots){
+            System.out.println("Spot "+spot.getSpotNumber()+": "+(spot.isAvailable()?"Available For":"Occupied By ")+" "+spot.getVehicleType());
+        }
     }
 
 }
